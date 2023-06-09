@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/MainMeal.css';
-
+import axios from 'axios';
 
 
 
@@ -10,7 +10,16 @@ const MainMeal = () => {
     const[image, setImage] = useState('');
 
 
-    
+    axios
+        .get('https://themealdb.com/api/json/v1/1/random.php')
+        .then((response) =>{
+        var resp = response.data.meals[0];
+        setImage(resp.strMealThumb);
+
+        })
+        .catch((error) => {
+            console.log(error);
+        })
 
     return(
         <div className="mainMeal">
