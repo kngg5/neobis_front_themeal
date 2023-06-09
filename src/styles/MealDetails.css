@@ -1,0 +1,76 @@
+.meal_details {
+    padding: 1rem;
+}
+
+.meal_details-info {
+    display: flex;
+    font-family: var(--raleway);
+    gap: 30px;
+    margin: 60px 0;
+}
+.meal_details-info__text {
+    text-align: center;
+}
+.meal_details-info__heading {
+    color: #d49726;
+    font-size: 3rem;
+    font-weight: 700;
+    font-family: var(--cardo);
+    margin-bottom: 2rem;
+    
+}
+.meal_details-info__category {
+    font-size: 1rem;
+    font-family: var(--cardo);
+}
+.meal_details-info__ingredients {
+    text-align: start;
+    padding-left:40px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    
+}
+.meal_details-info__ingredients strong{
+    font-family: var(--cardo);
+}
+.meal_details-info__ingredients p::before{
+    content: "-";
+    margin-right:.50rem ;
+}
+.meal_details-info__img {
+    text-align: center;
+}
+.meal_details-info__img img{
+    width: 70%;
+    border-radius: .50rem;
+    object-fit:cover;
+    box-shadow: 10px 12px 29px -14px rgba(0,0,0,.75);
+}
+.meal_details-instruction {
+}
+.meal_details-instruction__heading {
+    text-align: center;
+    margin-top: .90rem;
+    margin-bottom: 1rem;
+    font-family: var(--cardo);
+    font-size: 2rem;
+}
+.meal_details-instruction__paragraph {
+    font-family: var(--raleway);
+}
+.meal_details-youtube-btn {
+    cursor: pointer;
+    background-color: red;
+    border-radius: 6px;
+    align-items: center;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    font-family: var(--raleway);
+    font-weight: 700;
+    font-size: 1rem;
+    height: 45px;
+    width: 200px;
+    margin: 60px 0;
+}

@@ -1,0 +1,19 @@
+.meal_list-block {
+    display: flex;
+    align-items: center;
+    margin: 1.50rem 3rem;
+    gap: 30px;
+    cursor: pointer;
+}
+.meal_list-block img{
+    width: 30%;
+}
+.meal_list-info__block {
+    font-family: var(--raleway);
+}
+.meal_list-info_heading {
+    font-size: 1.40rem;
+}
+.meal_list-info_category {
+    font-size: 1rem;
+}
