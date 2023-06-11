@@ -1,13 +1,18 @@
 import React from 'react';
 import '../styles/SearchMeal.css';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
-const SearchMeal = () => {
+const SearchMeal = ({search}) => {
+
+
+   
     return(
         <div className="meal_list-block">
-            <img src="https://www.themealdb.com/images/media/meals/rwuyqx1511383174.jpg" alt="Meal"/>
+            <img src={search.strMealThumb} alt="Meal"/>
             <div className="meal_list-info__block">
-                <h3 className="meal_list-info_heading">Pancakes</h3>
-                <p className="meal_list-info_category">Chicken | American</p>
+                <h3 className="meal_list-info_heading">{search.strMeal}</h3>
+                <p className="meal_list-info_category">{search.strCategory} | {search.strArea}</p>
             </div>
         </div>
     );
