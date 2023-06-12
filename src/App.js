@@ -4,7 +4,7 @@ import Header from './components/Header';
 import MainMeal from './components/MainMeal';
 import SearchMeal from './components/SearchMeal';
 import MealDetails from './components/MealDetails';
-import {BrowserRouter as Router, Switch, Route } from'react-router-dom';
+import {Routes, Link, Route } from'react-router-dom';
 
 
 
@@ -16,6 +16,12 @@ function App() {
       <div className="App">
         <Header />
         <MainMeal />
+        
+        {/* <Routes>
+          <Route path='/' element={<Header />}/> */}
+          {/* <Route path='/mainMeal' element={<MainMeal />}/> */}
+          {/* <Route path='/:id' element={<MealDetails />}/> */}
+        {/* </Routes> */}
         
       </div>
     

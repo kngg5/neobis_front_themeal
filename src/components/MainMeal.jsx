@@ -7,11 +7,9 @@ import SearchMeal from './SearchMeal';
 
 
 const MainMeal = () => {
-
-   
     const[result, setResult]= useState([]);
     const[searchedData, setSearchedData] = useState([]);
-    const[searchMeal, setSearchMeal] = useState('l');
+    const[searchMeal, setSearchMeal] = useState('');
     
     useEffect(() => {
         const fetchData = async () => {
@@ -28,8 +26,9 @@ const MainMeal = () => {
         fetchData();
     }, []);
 
-    useEffect(() => {
-        var fetchMeal = async () => {
+    
+      const fetchMeal = async (e) => {
+          e.preventDefault();
           try {
             const resp = await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchMeal}`);
            
@@ -38,16 +37,11 @@ const MainMeal = () => {
           } catch (error) {
             console.error(error);
           }
-        };
+      };
         
-        fetchMeal();
-    }, []);
-    
-    function getSearchMeal(e) {
-        e.preventDefault();
         
-        console.log(searchMeal);
-    }
+   
+  
 
     return(
         <div className="mainMeal">
@@ -65,8 +59,8 @@ const MainMeal = () => {
                 <h2 className="search_bar__block-heading">Find your Meal</h2>
                 <div className="search_bar">
                    <form>
-                        <input type="text" name="search_text" id="search_text" value={searchMeal} onChange={(e)=> setSearchMeal(e.target.value)} placeholder="Find your meal"/>
-                        <button type="submit" onClick={getSearchMeal} className="search_btn">Search</button>
+                        <input type="text" name="search_text" id="search_text" value={searchMeal} onChange={(event)=> setSearchMeal(event.target.value)} placeholder="Find your meal"/>
+                        <input type="submit" onClick={fetchMeal} value={'Search'} className="search_btn"/>
                    </form>
                 </div>
             </div>
