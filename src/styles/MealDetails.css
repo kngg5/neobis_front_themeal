@@ -4,6 +4,7 @@
 
 .meal_details-info {
     display: flex;
+    justify-content: space-around;
     font-family: var(--raleway);
     gap: 30px;
     margin: 60px 0;

@@ -1,24 +1,29 @@
 import React from 'react';
 import '../styles/SearchMeal.css';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-import MealDetails from './MealDetails';
+import { Link } from'react-router-dom';
 
 const SearchMeal = ({search}) => {
 
-    function getId() {
-        console.log(search.idMeal);
-    }
+    console.log(search.idMeal);
+    console.log(search.strMeal);
+    console.log(search.strCategory);
+    console.log(search.strArea);
+
    
     return(
-        <div className="meal_list-block" onClick={getId}>
-            <img src={search.strMealThumb} alt="Meal"/>
-            <div className="meal_list-info__block">
-                <h3 className="meal_list-info_heading">{search.strMeal}</h3>
-                <p className="meal_list-info_category">{search.strCategory} | {search.strArea}</p>
-            </div>
-            <MealDetails mealNumber={search.idMeal}/>
-        </div>
+      
+            <Link to={`/details/${search.idMeal}`}>
+                <div className="meal_list-block">
+                    <img src={search.strMealThumb} alt="Meal"/>
+                    <div className="meal_list-info__block">
+                        <h3 className="meal_list-info_heading">{search.strMeal}</h3>
+                        <p className="meal_list-info_category">{search.strCategory} | {search.strArea}</p>
+                    </div>
+                
+                </div>
+            </Link>
+            
+       
     );
 }
 

@@ -3,7 +3,7 @@ import '../styles/header.css';
 const Header = () => {
     return(
         <div className='header'>
-            <a href='index.html'>The Meal</a>
+            <a href='/mainmeal'>The Meal</a>
         </div>
     );
 }

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import '../styles/MainMeal.css';
 import axios from 'axios';
 import SearchMeal from './SearchMeal';
-
-
+import Header from './Header';
+import { Link } from'react-router-dom';
 
 
 const MainMeal = () => {
@@ -16,8 +16,7 @@ const MainMeal = () => {
           try {
             const response = await axios.get('https://themealdb.com/api/json/v1/1/random.php');
             setResult(response.data.meals[0]);
-            
-            
+
           } catch (error) {
             console.error(error);
           }
@@ -31,24 +30,20 @@ const MainMeal = () => {
           e.preventDefault();
           try {
             const resp = await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchMeal}`);
-           
             setSearchedData(resp.data.meals);
-            
           } catch (error) {
             console.error(error);
           }
       };
         
-        
-   
-  
-
     return(
+        <>
+        <Header />
         <div className="mainMeal">
             <div className="container">
                 <div className="mainMeal_info">
                     <h2 className="mainMeal_info-heading space">Meal of the day</h2>
-                    <a href="index.html" className="mainMeal_info-meal_name space">{result.strMeal}</a>
+                    <Link to={`/details/${result.idMeal}`} className="mainMeal_info-meal_name space">{result.strMeal}</Link>
                     <p className="mainMeal_info-category space">{result.strArea} <span>{result.strCategory}</span></p>
                 </div>
                 <div className="mainMealImage">
@@ -68,7 +63,8 @@ const MainMeal = () => {
                 <SearchMeal search={searched} key={searchedData[index].idMeal}/>
             )}
             
-        </div>    
+        </div>  
+        </>  
     );
 }
 
