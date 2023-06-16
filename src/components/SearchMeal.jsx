@@ -3,12 +3,6 @@ import '../styles/SearchMeal.css';
 import { Link } from'react-router-dom';
 
 const SearchMeal = ({search}) => {
-
-    console.log(search.idMeal);
-    console.log(search.strMeal);
-    console.log(search.strCategory);
-    console.log(search.strArea);
-
    
     return(
       

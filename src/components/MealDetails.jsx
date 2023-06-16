@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Header from './Header';
 
+
 const MealDetails = ({mealNumber}) => {
     const[mealDetails, setMealDetails] = useState([]);
     const { id } = useParams();
@@ -22,21 +23,14 @@ const MealDetails = ({mealNumber}) => {
         };
         fetchData();
     }, [id]);
-    let r=Object.keys(mealDetails);
-    
- 
-   
-    
+
+
     let entries = Object.entries(mealDetails)
     entries.forEach( (entry,index) => {
         let i = index + 1; 
         if(mealDetails[`strIngredient${i}`]) {
-            mealIngredients[mealDetails[`strIngredient${i}`]] = mealDetails[`strMeasure${i}`]; 
-            console.log(mealIngredients);                       
-              
-                             
-       }      
-         
+            mealIngredients[mealDetails[`strIngredient${i}`]] = mealDetails[`strMeasure${i}`];                      
+       }          
     })
     
     return(
@@ -48,14 +42,12 @@ const MealDetails = ({mealNumber}) => {
                         <p className="meal_details-info__heading">{mealDetails.strMeal}</p>
                         <p className="meal_details-info__category">{mealDetails.strCategory} | {mealDetails.strArea}</p>
                         <div className="meal_details-info__ingredients">
-                            {Object.entries(mealIngredients).map(([ingredient, measure]) => {
-                                    <p key={ingredient}>
-                                        {ingredient}
-                                        <strong>   {measure}</strong>
-                                    </p> 
-                                    
+                            {Object.entries(mealIngredients).map(([ingredient, measure],index) => {
+                                console.log(index+ingredient+measure);  
+                                return (
+                                    <p key={index}>{ingredient}{"  "}<strong>{"  "}{measure}</strong></p>                             
+                                );                                 
                                 })
-                                 
                             }                          
                         </div>
                     </div>
