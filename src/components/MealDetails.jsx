@@ -25,16 +25,19 @@ const MealDetails = ({mealNumber}) => {
     let r=Object.keys(mealDetails);
     
  
-    let i = 1;
-    let entries = Object.entries(mealDetails)
-    let data = entries.map( (index) => {
-        if(mealDetails[`strIngredient${i}`]) {
-            console.log(mealDetails[`strIngredient${i}`]);             
-            console.log(mealDetails[`strMeasure${i}`]);
-        }      
-        i++;    
-    });
+   
     
+    let entries = Object.entries(mealDetails)
+    entries.forEach( (entry,index) => {
+        let i = index + 1; 
+        if(mealDetails[`strIngredient${i}`]) {
+            mealIngredients[mealDetails[`strIngredient${i}`]] = mealDetails[`strMeasure${i}`]; 
+            console.log(mealIngredients);                       
+              
+                             
+       }      
+         
+    })
     
     return(
         <>
@@ -45,14 +48,15 @@ const MealDetails = ({mealNumber}) => {
                         <p className="meal_details-info__heading">{mealDetails.strMeal}</p>
                         <p className="meal_details-info__category">{mealDetails.strCategory} | {mealDetails.strArea}</p>
                         <div className="meal_details-info__ingredients">
-                            { entries.map( (index) => {
-                                if(mealDetails[`strIngredient${i}`]) {
-                                    console.log(mealDetails[`strIngredient${i}`]);             
-                                    console.log(mealDetails[`strMeasure${i}`]);
-                                    return (<p>{mealDetails[`strIngredient${i}`]} <strong>{mealDetails[`strMeasure${i}`]}</strong></p>);
-                                }      
-                                i++;    
-                            })}                          
+                            {Object.entries(mealIngredients).map(([ingredient, measure]) => {
+                                    <p key={ingredient}>
+                                        {ingredient}
+                                        <strong>   {measure}</strong>
+                                    </p> 
+                                    
+                                })
+                                 
+                            }                          
                         </div>
                     </div>
                     <div className="meal_details-info__img">
